@@ -29,3 +29,13 @@ child(X, Y) :- parent(Y, X).
 
 descendant(X, Y) :- parent(Y, X).
 descendant(X, Y) :- parent(Z, X), descendant(Z, Y).
+
+% Entry Point for Compilation 
+main :-
+  write('Sample Queries '), nl,
+  (grandparent(john, james) -> write('John is a grandparent of James'), nl; true),
+  (sibling(paul, mary) -> write('Paul and Mary are siblings'), nl; true),
+  (cousin(kate, robert) -> write('Kate and Robert are cousins'), nl; true),
+  halt.
+
+:- initialization(main).
